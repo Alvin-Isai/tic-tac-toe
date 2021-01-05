@@ -5,8 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic-Tac-Toe</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+    <div class="board" >
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        
+    </div>
+
+    <div class="playerForm">
+        <label for="player1">Player 1 Name</label>
+        <input type="text" name="player1">
+
+        <label for="player2">Player 2 Name</label>
+        <input type="text" name="player2">
+    </div>
+
+    <div class="overlay">
+        <div class="winnerMessage"></div>
+        <button id='show' onclick="restart()" ><i class="fa fa-repeat" aria-hidden="true"></i>
+        </button>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
