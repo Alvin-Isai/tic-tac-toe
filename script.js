@@ -1,8 +1,11 @@
 const board = document.querySelector('.board')
+const xContainer = document.querySelector('.xContainer')
+const oContainer = document.querySelector('.oContainer')
 const xClass = 'x'
 const circleClass = 'circle'
 const winner = document.querySelector('.overlay')
 const message = document.querySelector('.winnerMessage')
+const playerContainer = document.querySelector('.playerContainer')
 let circleTurn
 
 const game = (() => {
@@ -38,14 +41,19 @@ function swapTurns() {
 }
 
 function setHoverClass() {
+    xContainer.classList.remove('glow')
+    oContainer.classList.remove('glow')
     board.classList.remove(circleClass);
     board.classList.remove(xClass);
 
     if (circleTurn) {
+
         board.classList.add(circleClass)
+        oContainer.classList.add('glow')
     }
     else {
         board.classList.add(xClass)
+        xContainer.classList.add('glow')
     }
 }
 
@@ -78,7 +86,7 @@ function endGame(draw) {
     else {
         console.log('Winner');
         message.innerText = `${circleTurn ? 'X' : 'O'} Wins!`
-        winner.classList.add('overlayShow')
+        winner.classList.add('show')
         
         
     }
@@ -87,6 +95,18 @@ function endGame(draw) {
 
 function restart() {
     location.reload()
+}
+
+function submit() {
+    const player1 = document.getElementById('player1').value
+    const player2 = document.getElementById('player2').value
+    const xName = document.querySelector('.xName')
+    const oName = document.querySelector('.oName')
+
+    xName.innerHTML = player1
+    oName.innerHTML = player2
+    
+    playerContainer.classList.add('hide')
 }
 
 

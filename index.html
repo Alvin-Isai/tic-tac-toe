@@ -21,13 +21,27 @@
         <div class="square"></div>
         
     </div>
+    <div class="xContainer glow">
+        <h1>X</h1>
+        <div class="xName"></div>
+    </div>
 
-    <div class="playerForm">
-        <label for="player1">Player 1 Name</label>
-        <input type="text" name="player1">
+    <div class="oContainer">
+        <h1>O</h1>
+        <div class="oName"></div>
+    </div>
 
-        <label for="player2">Player 2 Name</label>
-        <input type="text" name="player2">
+    <div class="playerContainer">
+        <div class="playerForm">
+            <label for="player1">Player 1</label>
+            <input id='player1' type="text" name="player1" placeholder="Player 1 Name">
+
+            <label for="player2">Player 2</label>
+            <input id='player2'  type="text" name="player2" placeholder="Player 2 Name">
+
+            <button class="submit" onclick="submit()">Submit</button>
+        </div>
+        
     </div>
 
     <div class="overlay">
