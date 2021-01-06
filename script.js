@@ -29,8 +29,9 @@ function handleClick(e) {
     if (checkWin(currentClass)) {
         endGame(false)
     }
-    // check for win
-    // check for draw
+    else if (isDraw()) {
+        endGame(true)
+    }
 }
 
 function mark(square, currentClass) {
@@ -81,23 +82,28 @@ function checkWin(currentClass) {
 
 function endGame(draw) {
     if (draw) {
-        console.log('draw')
+        message.innerHTML = 'Draw!'
+        winner.classList.add('show')
     }
     else {
-        console.log('Winner');
-        message.innerText = `${circleTurn ? 'X' : 'O'} Wins!`
+        message.innerText = `${circleTurn ? `${submit().player1}` : `${submit().player2}`} Wins!`
         winner.classList.add('show')
         
         
     }
 }
 
+function isDraw() {
+    return [...game.squareDivs].every(square => {
+        return square.classList.contains(xClass) || square.classList.contains(circleClass)
+    })
+}
 
 function restart() {
     location.reload()
 }
 
-function submit() {
+const submit = () => {
     const player1 = document.getElementById('player1').value
     const player2 = document.getElementById('player2').value
     const xName = document.querySelector('.xName')
@@ -107,7 +113,10 @@ function submit() {
     oName.innerHTML = player2
     
     playerContainer.classList.add('hide')
+
+    return {player1, player2}
 }
+
 
 
 
